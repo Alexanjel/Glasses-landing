@@ -114,7 +114,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                           <User className="w-4 h-4" />
                         </div>
                         <div className="min-w-0">
-                          <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
+                          <span className="text-[10px] uppercase font-bold tracking-wider text-slate-600 block">
                             Клієнт OPTIK
                           </span>
                           <p className="text-xs sm:text-sm font-bold text-dark-900 truncate mt-0.5">
@@ -184,7 +184,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                             <Glasses className="w-4 h-4" />
                           </div>
                           <div className="min-w-0">
-                            <span className="text-[10px] text-slate-400 uppercase font-semibold block">
+                            <span className="text-[10px] text-slate-600 uppercase font-semibold block">
                               {t.cases.modelUsed}
                             </span>
                             <span className="text-xs sm:text-sm font-bold text-dark-900 truncate block">

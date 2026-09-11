@@ -164,7 +164,7 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
 
                     {/* Qualifications Header & List */}
                     <div className="mb-8">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">
                         {t.experts.specialization} &amp; Кваліфікація
                       </h4>
                       <ul className="space-y-2.5">

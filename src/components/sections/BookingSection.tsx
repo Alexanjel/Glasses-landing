@@ -497,7 +497,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   {isSubmitting ? t.submitting : t.submitBtn}
                 </Button>
 
-                <p className="text-[11px] text-slate-500 text-center mt-3">
+                <p className="text-[11px] text-slate-600 text-center mt-3">
                   {t.privacyNotice}
                 </p>
               </div>

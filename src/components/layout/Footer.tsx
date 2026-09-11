@@ -65,6 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 className="sr-only">Інформація про студію OPTIK, навігація та контакти</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-dark-800/80">
           {/* Brand Col */}
           <div className="lg:col-span-4 flex flex-col justify-between">
@@ -117,9 +118,9 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
           {/* Navigation Links Col */}
           <div className="lg:col-span-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">
               Навігація сайтом
-            </h4>
+            </h3>
             <ul className="grid grid-cols-2 gap-y-3 gap-x-6 text-sm text-slate-300">
               {navLinks.map((link) => (
                 <li key={link.id}>
@@ -137,9 +138,9 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
           {/* Contact & Location Col */}
           <div className="lg:col-span-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">
               Контакти & Шоурум
-            </h4>
+            </h3>
             <div className="space-y-4 text-sm text-slate-300">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-brand-400 shrink-0 mt-1" />
@@ -175,21 +176,21 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
         </div>
 
         {/* Footer Bottom: Copyright & Legal Policies */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} OPTIK. {t.rights}</p>
 
           <div className="flex items-center gap-6">
             <button
               type="button"
               onClick={() => setIsPrivacyOpen(true)}
-              className="hover:text-slate-300 transition-colors cursor-pointer focus:outline-none"
+              className="hover:text-white transition-colors cursor-pointer focus:outline-none focus:underline"
             >
               {t.privacy}
             </button>
             <button
               type="button"
               onClick={() => setIsTermsOpen(true)}
-              className="hover:text-slate-300 transition-colors cursor-pointer focus:outline-none"
+              className="hover:text-white transition-colors cursor-pointer focus:outline-none focus:underline"
             >
               {t.terms}
             </button>

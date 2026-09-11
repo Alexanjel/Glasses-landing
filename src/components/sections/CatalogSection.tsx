@@ -217,7 +217,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     {/* Color Swatches */}
                     {product.colors.length > 1 && (
                       <div className="flex items-center gap-2 mt-4">
-                        <span className="text-[11px] text-slate-400 font-medium">Колір:</span>
+                        <span className="text-[11px] text-slate-600 font-medium">Колір:</span>
                         <div className="flex items-center gap-1.5">
                           {product.colors.map((color, idx) => (
                             <button
@@ -278,7 +278,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                   <div className="mt-6 pt-4 border-t border-slate-100">
                     <div className="flex items-baseline justify-between mb-4">
                       <div>
-                        <span className="text-[11px] text-slate-400 block uppercase tracking-wider font-semibold">
+                        <span className="text-[11px] text-slate-600 block uppercase tracking-wider font-semibold">
                           Ціна
                         </span>
                         <div className="flex items-baseline gap-2">
@@ -286,7 +286,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                             {product.price.toLocaleString('uk-UA')} ₴
                           </span>
                           {product.oldPrice && (
-                            <span className="text-xs text-slate-400 line-through">
+                            <span className="text-xs text-slate-500 line-through">
                               {product.oldPrice.toLocaleString('uk-UA')} ₴
                             </span>
                           )}

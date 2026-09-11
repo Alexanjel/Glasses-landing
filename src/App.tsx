@@ -1,20 +1,22 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { Language } from './types'
 import { Header } from './components/layout/Header'
-import { Footer } from './components/layout/Footer'
 import { HeroSection } from './components/sections/HeroSection'
 import { GlassesMarqueeSection } from './components/sections/GlassesMarqueeSection'
 import { AboutSection } from './components/sections/AboutSection'
-import { SpecialistsSection } from './components/sections/SpecialistsSection'
-import { CatalogSection } from './components/sections/CatalogSection'
-import { CaseStudiesSection } from './components/sections/CaseStudiesSection'
-import { QuizSection } from './components/sections/QuizSection'
-import { ReviewsSection } from './components/sections/ReviewsSection'
-import { BookingSection } from './components/sections/BookingSection'
-import { FaqSection } from './components/sections/FaqSection'
 import { ScrollToTopButton } from './components/ui/ScrollToTopButton'
 import { ToasterProvider } from './components/ui/ToasterProvider'
 import { translations } from './data/translations'
+
+// Asynchronously load below-the-fold sections for instant mobile FCP & LCP
+const SpecialistsSection = lazy(() => import('./components/sections/SpecialistsSection'))
+const CatalogSection = lazy(() => import('./components/sections/CatalogSection'))
+const CaseStudiesSection = lazy(() => import('./components/sections/CaseStudiesSection'))
+const QuizSection = lazy(() => import('./components/sections/QuizSection'))
+const ReviewsSection = lazy(() => import('./components/sections/ReviewsSection'))
+const BookingSection = lazy(() => import('./components/sections/BookingSection'))
+const FaqSection = lazy(() => import('./components/sections/FaqSection'))
+const Footer = lazy(() => import('./components/layout/Footer'))
 
 export function App() {
   const [lang, setLang] = useState<Language>('uk')
@@ -97,52 +99,57 @@ export function App() {
           onConsultationClick={handleBookingClick}
         />
 
-        {/* 5. Blocks 4-6: Our Specialists (Артем, Олена, Софія) */}
-        <SpecialistsSection
-          lang={lang}
-          onBookWithSpecialist={handleBookWithSpecialist}
-        />
+        {/* Lazy loaded below-the-fold sections */}
+        <Suspense fallback={null}>
+          {/* 5. Blocks 4-6: Our Specialists (Артем, Олена, Софія) */}
+          <SpecialistsSection
+            lang={lang}
+            onBookWithSpecialist={handleBookWithSpecialist}
+          />
 
-        {/* 6. Block 7: Product Catalog / Electronic Showcase */}
-        <CatalogSection
-          lang={lang}
-          onBookTryOn={handleBookTryOn}
-        />
+          {/* 6. Block 7: Product Catalog / Electronic Showcase */}
+          <CatalogSection
+            lang={lang}
+            onBookTryOn={handleBookTryOn}
+          />
 
-        {/* 7. Block 8: Real Customer Case Studies & Results */}
-        <CaseStudiesSection
-          lang={lang}
-          onBookCaseConsultation={handleBookCaseConsultation}
-        />
+          {/* 7. Block 8: Real Customer Case Studies & Results */}
+          <CaseStudiesSection
+            lang={lang}
+            onBookCaseConsultation={handleBookCaseConsultation}
+          />
 
-        {/* 8. Block 9: Smart Frame Matcher Quiz */}
-        <QuizSection
-          lang={lang}
-          onQuizComplete={handleQuizComplete}
-        />
+          {/* 8. Block 9: Smart Frame Matcher Quiz */}
+          <QuizSection
+            lang={lang}
+            onQuizComplete={handleQuizComplete}
+          />
 
-        {/* 9. Block 10: Client Reviews Marquee */}
-        <ReviewsSection
-          lang={lang}
-        />
+          {/* 9. Block 10: Client Reviews Marquee */}
+          <ReviewsSection
+            lang={lang}
+          />
 
-        {/* 10. Block 11: Smart Booking Form with Validation & Modal */}
-        <BookingSection
-          lang={lang}
-          initialSpecialist={selectedSpecialist}
-          initialProduct={selectedProduct}
-        />
+          {/* 10. Block 11: Smart Booking Form with Validation & Modal */}
+          <BookingSection
+            lang={lang}
+            initialSpecialist={selectedSpecialist}
+            initialProduct={selectedProduct}
+          />
 
-        {/* 11. Block 12: Frequently Asked Questions (FAQ) */}
-        <FaqSection
-          lang={lang}
-        />
+          {/* 11. Block 12: Frequently Asked Questions (FAQ) */}
+          <FaqSection
+            lang={lang}
+          />
+        </Suspense>
       </main>
 
       {/* 12. Block 13: Footer with Kyiv showroom contacts & legal modals */}
-      <Footer
-        lang={lang}
-      />
+      <Suspense fallback={null}>
+        <Footer
+          lang={lang}
+        />
+      </Suspense>
 
       {/* Floating Back to Top Button */}
       <ScrollToTopButton label={t.backToTop} />

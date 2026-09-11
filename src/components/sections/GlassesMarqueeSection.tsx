@@ -407,7 +407,7 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                 {/* Card Bottom: Price & Action */}
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                   <div>
-                    <span className="text-xs text-slate-400 block">{priceLabels[lang]}</span>
+                    <span className="text-xs text-slate-600 font-medium block">{priceLabels[lang]}</span>
                     <span className="text-lg font-extrabold text-dark-900 tracking-tight">
                       {model.price[lang]}
                     </span>
