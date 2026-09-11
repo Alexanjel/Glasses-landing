@@ -107,6 +107,9 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                         <img
                           src={specialist.image}
                           alt={specialist.name[lang]}
+                          width="480"
+                          height="600"
+                          decoding="async"
                           className="w-full h-full object-cover object-top sm:object-center transform group-hover:scale-105 transition-transform duration-500 ease-out"
                           loading="lazy"
                         />

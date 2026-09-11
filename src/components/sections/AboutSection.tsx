@@ -89,6 +89,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
               <img
                 src="/assets/images/how-we-work.webp"
                 alt={t.about.title}
+                width="735"
+                height="490"
+                decoding="async"
                 className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out flex-1"
                 loading="lazy"
               />

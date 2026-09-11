@@ -388,7 +388,10 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                     <img
                       src={model.image}
                       alt={model.name[lang]}
+                      width="360"
+                      height="200"
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-contain filter drop-shadow-[0_8px_14px_rgba(10,13,20,0.12)] group-hover/card:scale-105 transition-transform duration-300 ease-out"
                     />
                   </div>
