@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
       ru: 'Усталость глаз полностью исчезла. Оправа 12 грамм совершенно не ощущается во время работы.',
     },
     modelChosen: 'OPTIK Kuro Titanium 01 (Matte Obsidian)',
-    image: '/assets/images/product-2.jpg',
+    image: '/assets/images/product-2.webp',
   },
   {
     id: 'case-anna-art',
@@ -59,6 +59,6 @@ export const caseStudies: CaseStudy[] = [
       ru: '100% четкость зрения без искажений. Оправа стала главным акцентом персонального стиля.',
     },
     modelChosen: 'OPTIK Aero Slate 02 (Carbon Black)',
-    image: '/assets/images/product-1.jpg',
+    image: '/assets/images/product-1.webp',
   },
 ]

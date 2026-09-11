@@ -62,7 +62,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           loop
           muted
           playsInline
-          poster="/assets/images/Як ми працюємо.jpg"
+          preload="none"
+          poster="/assets/images/how-we-work.webp"
         >
           <source src="/assets/videos/hero-video.mp4" type="video/mp4" />
         </video>

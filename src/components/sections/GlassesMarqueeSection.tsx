@@ -70,7 +70,7 @@ const marqueeModels: MarqueeModel[] = [
       en: '$170',
       ru: '6 800 ₴',
     },
-    image: '/assets/images/glasses-1.png',
+    image: '/assets/images/glasses-1.webp',
     tags: {
       uk: ['Бестселер', '12 г', 'Бета-титан'],
       en: ['Bestseller', '12g', 'Beta-Titanium'],
@@ -101,7 +101,7 @@ const marqueeModels: MarqueeModel[] = [
       en: '$155',
       ru: '6 200 ₴',
     },
-    image: '/assets/images/glasses-2.png',
+    image: '/assets/images/glasses-2.webp',
     tags: {
       uk: ['Mazzucchelli', '16 г', 'Хіт сезону'],
       en: ['Mazzucchelli', '16g', 'Season Hit'],
@@ -132,7 +132,7 @@ const marqueeModels: MarqueeModel[] = [
       en: '$150',
       ru: '5 900 ₴',
     },
-    image: '/assets/images/glasses-3.png',
+    image: '/assets/images/glasses-3.webp',
     tags: {
       uk: ['Ультралегкі', '11 г', 'Титан'],
       en: ['Ultralight', '11g', 'Titanium'],
@@ -163,7 +163,7 @@ const marqueeModels: MarqueeModel[] = [
       en: '$185',
       ru: '7 400 ₴',
     },
-    image: '/assets/images/glasses-4.png',
+    image: '/assets/images/glasses-4.webp',
     tags: {
       uk: ['Готове рішення', 'BlueBlocker', 'Захист очей'],
       en: ['Ready Solution', 'BlueBlocker', 'Eye Shield'],
@@ -194,7 +194,7 @@ const marqueeModels: MarqueeModel[] = [
       en: '$200',
       ru: '8 100 ₴',
     },
-    image: '/assets/images/glasses-5.png',
+    image: '/assets/images/glasses-5.webp',
     tags: {
       uk: ['100% UV400', 'Поляризація', 'Для авто'],
       en: ['100% UV400', 'Polarized', 'Driver Choice'],

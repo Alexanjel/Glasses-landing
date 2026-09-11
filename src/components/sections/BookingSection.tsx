@@ -348,14 +348,17 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
               {/* Field 1: Name */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-dark-900 mb-2">
+                <label htmlFor="booking-name" className="block text-xs sm:text-sm font-semibold text-dark-900 mb-2">
                   {t.nameLabel}
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
                     <User className="w-4 h-4" />
                   </div>
                   <input
+                    id="booking-name"
+                    name="name"
+                    autoComplete="name"
                     type="text"
                     value={name}
                     onChange={(e) => {
@@ -381,14 +384,17 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
               {/* Field 2: Phone */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-dark-900 mb-2">
+                <label htmlFor="booking-phone" className="block text-xs sm:text-sm font-semibold text-dark-900 mb-2">
                   {t.phoneLabel}
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
                     <Phone className="w-4 h-4" />
                   </div>
                   <input
+                    id="booking-phone"
+                    name="tel"
+                    autoComplete="tel"
                     type="tel"
                     value={phone}
                     onChange={handlePhoneChange}
@@ -411,11 +417,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
               {/* Optional Field: Preferred Specialist */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-dark-900 mb-2">
+                <label htmlFor="booking-specialist" className="block text-xs sm:text-sm font-semibold text-dark-900 mb-2">
                   {t.specialistLabel}
                 </label>
                 <div className="relative">
                   <select
+                    id="booking-specialist"
+                    name="specialist"
                     value={selectedSpecialist}
                     onChange={(e) => setSelectedSpecialist(e.target.value)}
                     className="w-full pl-4 pr-11 py-3.5 bg-white rounded-2xl border border-surface-border hover:border-slate-300 text-sm text-dark-900 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all cursor-pointer appearance-none"
@@ -427,7 +435,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       </option>
                     ))}
                   </select>
-                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400">
+                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-500">
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </div>
@@ -436,7 +444,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
               {/* Field 3: Accompanying text / Notes (strictly up to 3000 chars) */}
               <div>
                 <div className="flex items-center justify-between mb-2 gap-3">
-                  <label className="block text-xs sm:text-sm font-semibold text-dark-900 whitespace-nowrap truncate">
+                  <label htmlFor="booking-message" className="block text-xs sm:text-sm font-semibold text-dark-900 whitespace-nowrap truncate">
                     {t.messageLabel}
                   </label>
                   <span
@@ -444,7 +452,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       'text-xs font-mono font-medium shrink-0',
                       charsRemaining < 100
                         ? 'text-amber-600 font-bold'
-                        : 'text-slate-500'
+                        : 'text-slate-600'
                     )}
                   >
                     {charsRemaining}/3000
@@ -453,6 +461,8 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
                 <div className="relative">
                   <textarea
+                    id="booking-message"
+                    name="message"
                     rows={4}
                     value={message}
                     onChange={handleMessageChange}

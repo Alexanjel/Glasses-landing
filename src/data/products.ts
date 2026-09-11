@@ -16,10 +16,10 @@ export const products: Product[] = [
       en: 'Minimalist flagship frame crafted from ultralight Japanese beta-titanium. Anatomical weightless fit with zero nose pressure.',
       ru: 'Минималистичная флагманская оправа из ультралегкого японского бета-титана. Анатомическая невесомая посадка.',
     },
-    image: '/assets/images/glasses-1.png',
+    image: '/assets/images/glasses-1.webp',
     colors: [
-      { name: 'Matte Obsidian', hex: '#0A0D14', image: '/assets/images/glasses-1.png' },
-      { name: 'Titanium Graphite', hex: '#475569', image: '/assets/images/glasses-2.png' },
+      { name: 'Matte Obsidian', hex: '#0A0D14', image: '/assets/images/glasses-1.webp' },
+      { name: 'Titanium Graphite', hex: '#475569', image: '/assets/images/glasses-2.webp' },
     ],
     tags: {
       uk: ['Бестселер', 'Титан 12г'],
@@ -47,10 +47,10 @@ export const products: Product[] = [
       en: 'Sophisticated frame in high-density Italian acetate with a titanium core. Built for daily focus and refined style.',
       ru: 'Благородная оправа из итальянского ацетата высокой плотности с титановым сердечником.',
     },
-    image: '/assets/images/glasses-2.png',
+    image: '/assets/images/glasses-2.webp',
     colors: [
-      { name: 'Carbon Black', hex: '#18181B', image: '/assets/images/glasses-2.png' },
-      { name: 'Smoke Crystal', hex: '#94A3B8', image: '/assets/images/glasses-1.png' },
+      { name: 'Carbon Black', hex: '#18181B', image: '/assets/images/glasses-2.webp' },
+      { name: 'Smoke Crystal', hex: '#94A3B8', image: '/assets/images/glasses-1.webp' },
     ],
     tags: {
       uk: ['Mazzucchelli', 'Ацетат'],
@@ -78,10 +78,10 @@ export const products: Product[] = [
       en: 'Featherlight frame featuring screwless Japanese hinges. Outstanding flexibility and long-lasting resilience.',
       ru: 'Сверхлегкая оправа с бесвинтовыми японскими шарнирами.',
     },
-    image: '/assets/images/glasses-3.png',
+    image: '/assets/images/glasses-3.webp',
     colors: [
-      { name: 'Silver Matte', hex: '#CBD5E1', image: '/assets/images/glasses-3.png' },
-      { name: 'Rose Gold', hex: '#E2B4A6', image: '/assets/images/glasses-1.png' },
+      { name: 'Silver Matte', hex: '#CBD5E1', image: '/assets/images/glasses-3.webp' },
+      { name: 'Rose Gold', hex: '#E2B4A6', image: '/assets/images/glasses-1.webp' },
     ],
     tags: {
       uk: ['Ультралегкі 11г', 'Безгвинтові'],
@@ -110,10 +110,10 @@ export const products: Product[] = [
       en: 'Complete ready-to-wear computer glasses with premium BlueBlocker optics. Protects retina from blue screen spectrum.',
       ru: 'Готовые компьютерные очки с линзами BlueBlocker. Защищают глаза от синего спектра экранов.',
     },
-    image: '/assets/images/glasses-4.png',
+    image: '/assets/images/glasses-4.webp',
     colors: [
-      { name: 'Midnight Blue', hex: '#1E293B', image: '/assets/images/glasses-4.png' },
-      { name: 'Classic Black', hex: '#0A0D14', image: '/assets/images/glasses-2.png' },
+      { name: 'Midnight Blue', hex: '#1E293B', image: '/assets/images/glasses-4.webp' },
+      { name: 'Classic Black', hex: '#0A0D14', image: '/assets/images/glasses-2.webp' },
     ],
     tags: {
       uk: ['BlueBlocker', 'Готові'],
@@ -141,10 +141,10 @@ export const products: Product[] = [
       en: 'Ready premium sunglasses with polarized UV400 lenses. Crystal clear vision without glare while driving.',
       ru: 'Готовые солнцезащитные очки с поляризационными линзами UV400. Идеальная четкость без бликов.',
     },
-    image: '/assets/images/glasses-5.png',
+    image: '/assets/images/glasses-5.webp',
     colors: [
-      { name: 'Dark Titanium', hex: '#0F172A', image: '/assets/images/glasses-5.png' },
-      { name: 'Matte Black', hex: '#000000', image: '/assets/images/glasses-1.png' },
+      { name: 'Dark Titanium', hex: '#0F172A', image: '/assets/images/glasses-5.webp' },
+      { name: 'Matte Black', hex: '#000000', image: '/assets/images/glasses-1.webp' },
     ],
     tags: {
       uk: ['UV400 Polarized', 'Сонцезахисні'],
@@ -172,9 +172,9 @@ export const products: Product[] = [
       en: 'Custom Japanese aspheric lenses featuring 9-layer anti-reflective, hydrophobic, and scratch-resistant coating.',
       ru: 'Японские асферические линзы индивидуального изготовления с 9-слойным защитным покрытием.',
     },
-    image: '/assets/images/lenses.png',
+    image: '/assets/images/lenses.webp',
     colors: [
-      { name: 'Crystal Clear', hex: '#E2E8F0', image: '/assets/images/lenses.png' },
+      { name: 'Crystal Clear', hex: '#E2E8F0', image: '/assets/images/lenses.webp' },
     ],
     tags: {
       uk: ['HMC Clarity', 'Японська оптика'],

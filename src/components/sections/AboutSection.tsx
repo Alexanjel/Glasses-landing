@@ -87,7 +87,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
           >
             <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm group h-full flex flex-col min-h-[380px] sm:min-h-[460px]">
               <img
-                src="/assets/images/how-we-work.jpg"
+                src="/assets/images/how-we-work.webp"
                 alt={t.about.title}
                 className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out flex-1"
                 loading="lazy"

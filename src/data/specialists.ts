@@ -40,7 +40,7 @@ export const specialists: Specialist[] = [
       en: '“Eyewear is the first thing people notice about you. We select frames based on precise facial geometry, personal color tones, and lifestyle.”',
       ru: '«Очки — это первое, на что обращает внимание собеседник. Мы подбираем оправы по геометрии лица и вашему ритму жизни.»',
     },
-    image: '/assets/images/expert-1.jpg',
+    image: '/assets/images/expert-1.webp',
     align: 'right',
   },
   {
@@ -82,7 +82,7 @@ export const specialists: Specialist[] = [
       en: '“Modern diagnostics identify micro-focus distortions causing evening eye fatigue. We eliminate eye strain completely.”',
       ru: '«Современная диагностика позволяет устранить микронарушения фокуса и вечернюю усталость глаз на 100%.»',
     },
-    image: '/assets/images/expert-2.jpg',
+    image: '/assets/images/expert-2.webp',
     align: 'left',
   },
   {
@@ -124,7 +124,7 @@ export const specialists: Specialist[] = [
       en: '“A frame can transform how people perceive you in one second: adding authority, lightness, or creative flair.”',
       ru: '«Оправа меняет восприятие за секунду: добавляет авторитетности, легкости или творческого шарма.»',
     },
-    image: '/assets/images/expert-3.jpg',
+    image: '/assets/images/expert-3.webp',
     align: 'right',
   },
 ]
