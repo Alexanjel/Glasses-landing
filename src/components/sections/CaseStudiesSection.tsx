@@ -196,13 +196,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                     </div>
 
                     {/* CTA Button */}
-                    <div>
+                    <div className={cn('flex', index === 0 ? 'justify-start lg:justify-end' : 'justify-start lg:justify-start')}>
                       <Button
                         variant="primary"
                         size="md"
                         onClick={() => onBookCaseConsultation(caseItem.modelChosen)}
                         icon={<ArrowRight className="w-4 h-4" />}
-                        className="w-full sm:w-auto shadow-sm hover:shadow"
+                        className="w-full sm:w-auto justify-center text-center shadow-sm hover:shadow"
                       >
                         {ctaLabels[lang]}
                       </Button>

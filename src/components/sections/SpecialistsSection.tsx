@@ -181,13 +181,13 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                     </div>
 
                     {/* Action CTA Button */}
-                    <div>
+                    <div className={cn('flex', isRightAligned ? 'justify-start' : 'justify-start lg:justify-end')}>
                       <Button
                         variant="primary"
                         size="md"
                         onClick={() => onBookWithSpecialist(specialist.name[lang])}
                         icon={<Calendar className="w-4 h-4" />}
-                        className="w-full sm:w-auto shadow-sm hover:shadow"
+                        className="w-full sm:w-auto justify-center text-center shadow-sm hover:shadow"
                       >
                         {getBookButtonText(specialist)}
                       </Button>

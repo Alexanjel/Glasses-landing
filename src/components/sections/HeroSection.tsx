@@ -130,18 +130,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </Button>
           </motion.div>
 
-          {/* 6. Floating Stats Bar - Sleek Glass with Bold Highlights */}
+          {/* 6. Floating Stats Bar - Sleek Glass with Bold Highlights & Centered Layout */}
           <motion.div
             variants={itemVariants}
-            className="w-full max-w-4xl mx-auto mt-12 sm:mt-16"
+            className="w-full max-w-4xl mx-auto mt-12 sm:mt-16 flex justify-center"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl text-left">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
               {/* Stat Item 1: Precision */}
-              <div className="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
+              <div className="flex items-center justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white shadow-xs">
                   <Activity className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="text-left">
                   <div className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-0.5">
                     {t.hero.stats.precision}
                   </div>
@@ -164,11 +164,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Stat Item 2: Warranty */}
-              <div className="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors sm:border-l sm:border-white/15 sm:pl-5">
+              <div className="flex items-center justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white shadow-xs">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="text-left">
                   <div className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-0.5">
                     {t.hero.stats.warranty}
                   </div>
@@ -191,11 +191,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Stat Item 3: Clients */}
-              <div className="flex items-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors sm:border-l sm:border-white/15 sm:pl-5">
+              <div className="flex items-center justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
                 <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white shadow-xs">
                   <Users className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="text-left">
                   <div className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-0.5">
                     {t.hero.stats.clients}
                   </div>

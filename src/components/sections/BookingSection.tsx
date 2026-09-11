@@ -243,17 +243,17 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
         </div>
 
         {/* Booking Form Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start max-w-5xl mx-auto">
-          {/* Left Info Column */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch max-w-5xl mx-auto">
+          {/* Left Info Column - Symmetrical & Full Height */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-5 bg-dark-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col justify-between relative overflow-hidden"
+            className="lg:col-span-5 bg-gradient-to-b from-dark-900 via-dark-900 to-[#0c162d] text-white rounded-3xl p-7 sm:p-9 lg:p-10 shadow-xl flex flex-col justify-between relative overflow-hidden h-full border border-slate-800/80"
           >
             <div
-              className="pointer-events-none absolute -bottom-10 -right-10 w-48 h-48 bg-brand-600/30 rounded-full blur-2xl"
+              className="pointer-events-none absolute -bottom-12 -right-12 w-64 h-64 bg-brand-600/25 rounded-full blur-3xl"
               aria-hidden="true"
             />
 
@@ -263,47 +263,54 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                 <span>OPTIK Experience</span>
               </div>
 
-              <h3 className="text-2xl font-bold tracking-tight mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6 leading-tight">
                 Що входить у ваш візит:
               </h3>
 
-              <div className="space-y-4 text-sm text-slate-300">
-                <div className="flex items-start gap-3">
+              <div className="space-y-4 sm:space-y-5 text-sm sm:text-[15px] text-slate-300 leading-relaxed">
+                <div className="flex items-start gap-3.5">
                   <div className="w-5 h-5 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span>Компʼютерна діагностика рефракції ока з точністю до 0.01D</span>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3.5">
                   <div className="w-5 h-5 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span>Індивідуальний підбір оправи за анатомією та стилем</span>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3.5">
                   <div className="w-5 h-5 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span>Тестування поляризації та захисних фільтрів BlueBlocker</span>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3.5">
                   <div className="w-5 h-5 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span>Чай, кава та персональна примірка без поспіху (45 хв)</span>
                 </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-5 h-5 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                  <span>Безкоштовне ультразвукове очищення та посадка оправи</span>
+                </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-              <div className="flex items-center gap-1.5">
+            <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm text-slate-300">
+              <div className="flex items-center gap-2 font-medium">
                 <Clock className="w-4 h-4 text-brand-400" />
                 <span>30–45 хвилин</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2 font-medium">
                 <ShieldCheck className="w-4 h-4 text-brand-400" />
                 <span>Без черг</span>
               </div>

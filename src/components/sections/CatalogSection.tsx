@@ -110,7 +110,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             className={cn(
               'px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-2 whitespace-nowrap border',
               activeTab === 'all'
-                ? 'bg-[#1D63ED] text-white border-transparent shadow-md shadow-blue-500/25'
+                ? 'bg-dark-900 text-white border-transparent shadow-md shadow-black/10'
                 : 'bg-white text-slate-700 hover:text-dark-900 hover:bg-slate-100 border-slate-200 shadow-xs'
             )}
           >
@@ -141,7 +141,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     className={cn(
                       'relative px-3.5 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-1.5 sm:gap-2 whitespace-nowrap',
                       isActive
-                        ? 'bg-[#1D63ED] text-white shadow-sm shadow-blue-500/20'
+                        ? 'bg-dark-900 text-white shadow-sm'
                         : 'text-slate-600 hover:text-dark-900 hover:bg-slate-100'
                     )}
                   >

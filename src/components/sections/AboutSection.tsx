@@ -40,29 +40,61 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
   const badgeInfo = floatingBadgeData[lang]
 
   return (
-    <section id="about" className="relative bg-white py-20 sm:py-28 overflow-hidden border-b border-slate-200">
+    <section id="about" className="relative bg-white py-20 sm:py-24 lg:py-28 overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Centered Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.45, ease: 'easeOut' }}
+            className="flex justify-center mb-4"
+          >
+            <Badge variant="brand">{t.about.badge}</Badge>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark-900 leading-[1.18]"
+          >
+            {t.about.title}
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5, delay: 0.16, ease: 'easeOut' }}
+            className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-2xl mx-auto"
+          >
+            {t.about.paragraph1}
+          </motion.p>
+        </div>
+
+        {/* Balanced 2-Column Content Grid: Photo Left, Details Right, Aligned Top & Bottom */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Column 1: Image container with floating badge */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative flex flex-col"
           >
-            <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm group">
-              <div className="aspect-[4/5] sm:aspect-[4/5] md:aspect-[4/4] lg:aspect-[4/5] w-full max-h-[560px]">
-                <img
-                  src="/assets/images/how-we-work.jpg"
-                  alt={t.about.title}
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-              </div>
+            <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm group h-full flex flex-col min-h-[380px] sm:min-h-[460px]">
+              <img
+                src="/assets/images/how-we-work.jpg"
+                alt={t.about.title}
+                className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out flex-1"
+                loading="lazy"
+              />
 
               {/* Gradient overlay for contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/45 via-transparent to-transparent pointer-events-none" />
 
               {/* Floating Badge */}
               <motion.div
@@ -87,32 +119,21 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
             </div>
           </motion.div>
 
-          {/* Column 2: Story & Value Points */}
+          {/* Column 2: Story & Value Points, Aligned evenly from Top to Bottom */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
-            className="lg:col-span-7 flex flex-col justify-center"
+            className="lg:col-span-7 flex flex-col justify-between"
           >
-            {/* Philosophy Badge - Centered */}
-            <div className="flex justify-center mb-4">
-              <Badge variant="brand">{t.about.badge}</Badge>
-            </div>
-
-            {/* Title - Centered */}
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-dark-900 leading-[1.2] mb-6 text-center">
-              {t.about.title}
-            </h2>
-
-            {/* Brand Story Paragraphs */}
-            <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed mb-8 text-center sm:text-left">
-              <p>{t.about.paragraph1}</p>
-              <p>{t.about.paragraph2}</p>
-            </div>
+            {/* Story Paragraph 2 */}
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+              {t.about.paragraph2}
+            </p>
 
             {/* 3 Value Point Cards */}
-            <div className="grid grid-cols-1 gap-3.5 sm:gap-4 mb-8">
+            <div className="grid grid-cols-1 gap-3.5 sm:gap-4 mb-6 flex-1 justify-center">
               {t.about.points.map((point, index) => (
                 <motion.div
                   key={index}
@@ -142,7 +163,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
             </div>
 
             {/* Consultation Action CTA - Full Width & Centered */}
-            <div className="w-full">
+            <div className="w-full pt-1">
               <Button
                 variant="primary"
                 size="lg"
