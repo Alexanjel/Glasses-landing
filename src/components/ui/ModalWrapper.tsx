@@ -54,13 +54,13 @@ export const ModalWrapper: React.FC<ModalWrapperProps> = ({
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          {/* Backdrop with blur */}
+          {/* Backdrop without heavy blur */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 bg-dark-950/70 backdrop-blur-md"
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            className="fixed inset-0 bg-dark-950/70 will-change-opacity"
             onClick={onClose}
           />
 

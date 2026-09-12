@@ -87,8 +87,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="fixed inset-0 bg-dark-950/75 backdrop-blur-md"
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            className="fixed inset-0 bg-dark-950/75 will-change-opacity"
             onClick={onClose}
           />
 

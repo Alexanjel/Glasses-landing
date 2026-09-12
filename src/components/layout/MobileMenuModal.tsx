@@ -79,13 +79,12 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
 
   const handleNavClick = (href: string) => {
     onClose()
-    // Small timeout to allow drawer exit animation to start smoothly
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       const target = document.querySelector(href)
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' })
       }
-    }, 80)
+    })
   }
 
   const handleCtaClick = () => {
@@ -93,59 +92,49 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
     if (onBookClick) {
       onBookClick()
     } else {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         const target = document.querySelector('#booking')
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' })
         }
-      }, 80)
+      })
     }
   }
 
-  // Animation variants following Emil Kowalski spring motion
+  // High-performance GPU animations: zero CLS, zero backdrop-blur cost, instant 60fps
   const backdropVariants: Variants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.18, ease: 'easeOut' },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.14, ease: 'easeIn' },
+    },
   }
 
   const drawerVariants: Variants = {
     hidden: {
       opacity: 0,
-      y: -20,
-      scale: 0.98,
+      y: -14,
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
         type: 'spring' as const,
-        stiffness: 350,
-        damping: 30,
-        staggerChildren: 0.035,
-        delayChildren: 0.05,
+        stiffness: 420,
+        damping: 34,
+        mass: 0.8,
       },
     },
     exit: {
       opacity: 0,
-      y: -15,
-      scale: 0.98,
+      y: -10,
       transition: {
-        duration: 0.2,
-        ease: [0.23, 1, 0.32, 1] as [number, number, number, number],
-      },
-    },
-  }
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: 'spring' as const,
-        stiffness: 400,
-        damping: 26,
+        duration: 0.16,
+        ease: [0.32, 0.72, 0, 1] as [number, number, number, number],
       },
     },
   }
@@ -154,18 +143,17 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-40 flex flex-col justify-start">
-          {/* Backdrop Blur */}
+          {/* Backdrop: Clean high-performance dark overlay without heavy GPU blur */}
           <motion.div
             variants={backdropVariants}
             initial="hidden"
             animate="visible"
-            exit="hidden"
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-dark-950/60 backdrop-blur-md"
+            exit="exit"
+            className="fixed inset-0 bg-dark-950/60 will-change-opacity cursor-pointer"
             onClick={onClose}
           />
 
-          {/* Modal Container - Slides down smoothly from underneath the fixed header */}
+          {/* Modal Container: Slides down smoothly with hardware acceleration */}
           <motion.div
             variants={drawerVariants}
             initial="hidden"
@@ -174,7 +162,8 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
             className={cn(
               'relative w-full max-h-[85vh] sm:max-h-[80vh] flex flex-col bg-white z-10',
               'pt-[62px] sm:pt-[72px]',
-              'rounded-b-3xl border-b border-slate-200/90 overflow-hidden'
+              'rounded-b-3xl border-b border-slate-200/90 overflow-hidden',
+              'transform-gpu will-change-transform touch-manipulation'
             )}
             onClick={(e) => e.stopPropagation()}
           >
@@ -186,25 +175,25 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
               <span className="text-[11px] font-mono text-slate-400">10 розділів</span>
             </div>
 
-            {/* Navigation List - Scrollable */}
-            <div className="flex-1 overflow-y-auto px-6 py-4 no-scrollbar">
+            {/* Navigation List - High performance scrollable list */}
+            <div className="flex-1 overflow-y-auto px-6 py-4 no-scrollbar overscroll-contain">
               <nav className="flex flex-col gap-1.5" aria-label="Головна навігація">
                 {NAV_ITEMS.map((item) => {
                   const Icon = item.icon
                   const label = t.nav[item.key] || item.key
                   return (
-                    <motion.a
+                    <a
                       key={item.id}
                       href={item.href}
-                      variants={itemVariants}
                       onClick={(e) => {
                         e.preventDefault()
                         handleNavClick(item.href)
                       }}
                       className={cn(
-                        'flex items-center justify-between px-4 py-3 rounded-2xl group select-none',
-                        'bg-slate-50/70 hover:bg-brand-50/70 text-dark-900 hover:text-brand-700',
-                        'border border-slate-100 hover:border-brand-200/60 transition-all duration-150'
+                        'flex items-center justify-between px-4 py-3 rounded-2xl group select-none cursor-pointer',
+                        'bg-slate-50/70 active:bg-brand-50/80 hover:bg-brand-50/70 text-dark-900 hover:text-brand-700',
+                        'border border-slate-100 hover:border-brand-200/60 active:scale-[0.99] transition-all duration-150',
+                        'touch-manipulation'
                       )}
                     >
                       <div className="flex items-center gap-3.5">
@@ -225,7 +214,7 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
                       </div>
 
                       <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all" />
-                    </motion.a>
+                    </a>
                   )
                 })}
               </nav>

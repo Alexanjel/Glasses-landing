@@ -130,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                 whileTap={{ scale: 0.94 }}
                 className={cn(
-                  'flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-full text-xs font-semibold select-none cursor-pointer',
+                  'flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-full text-xs font-semibold select-none cursor-pointer touch-manipulation',
                   isMobileMenuOpen
                     ? 'bg-dark-900 text-white border border-dark-900'
                     : 'bg-slate-100/90 hover:bg-slate-200/90 text-dark-900 border border-slate-200/80',
