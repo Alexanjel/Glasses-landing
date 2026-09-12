@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, Variants } from 'framer-motion'
 import { ArrowRight, Calendar, Activity, ShieldCheck, Users } from 'lucide-react'
 import { Language } from '../../types'
@@ -43,6 +43,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const t = translations[lang]
   const [isDesktop, setIsDesktop] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     // Only load background video on desktop/tablets (width >= 768px)
@@ -55,8 +57,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => window.removeEventListener('resize', checkIsDesktop)
   }, [])
 
+  // Auto-pause video when scrolled out of viewport to free 100% GPU/CPU during desktop scroll
+  useEffect(() => {
+    if (!isDesktop || !sectionRef.current) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+        if (entry.isIntersecting) {
+          videoRef.current?.play().catch(() => {})
+        } else {
+          videoRef.current?.pause()
+        }
+      },
+      { threshold: 0.05 }
+    )
+
+    observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [isDesktop])
+
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className={cn(
         'relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-dark-950 text-white',
@@ -75,7 +98,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="block md:hidden absolute inset-0 w-full h-full object-cover filter brightness-85"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover"
         />
 
         {/* Desktop Poster/Placeholder Image */}
@@ -84,13 +107,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           alt=""
           fetchPriority="high"
           decoding="async"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover scale-105 filter brightness-90"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Desktop Video - Only rendered on screens >= 768px */}
+        {/* Desktop Video - Only rendered on screens >= 768px with hardware acceleration and zero GPU shader filters */}
         {isDesktop && (
           <video
-            className="hidden md:block absolute inset-0 w-full h-full object-cover scale-105 filter brightness-90 transition-opacity duration-1000"
+            ref={videoRef}
+            className="hidden md:block absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 transform-gpu"
             autoPlay
             loop
             muted
@@ -101,8 +125,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </video>
         )}
 
-        {/* Primary Dark 950 Overlay for Crystal-Clear Text Readability */}
-        <div className="absolute inset-0 bg-dark-950/65 backdrop-brightness-95" />
+        {/* Primary Dark 950 Overlay for Crystal-Clear Text Readability (Pure CSS overlay, 0 GPU filter) */}
+        <div className="absolute inset-0 bg-dark-950/70" />
 
         {/* Ambient Top & Bottom Vignette for Smooth Transition */}
         <div className="absolute inset-0 bg-gradient-to-b from-dark-950/70 via-transparent to-dark-950" />

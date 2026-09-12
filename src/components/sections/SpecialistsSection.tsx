@@ -31,13 +31,13 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
       id="experts"
       className="relative bg-white py-20 sm:py-24 lg:py-28 overflow-hidden border-b border-surface-border/60"
     >
-      {/* Subtle background ambient blur */}
+      {/* Subtle background ambient glow (Hardware-accelerated radial gradient) */}
       <div
-        className="pointer-events-none absolute -top-40 right-0 w-[500px] h-[500px] bg-brand-50/50 rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute -top-40 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(239,246,255,0.8)_0%,transparent_70%)] -z-10"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -bottom-40 left-0 w-[500px] h-[500px] bg-slate-100/60 rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute -bottom-40 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(241,245,249,0.9)_0%,transparent_70%)] -z-10"
         aria-hidden="true"
       />
 

@@ -24,9 +24,9 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang }) => {
       id="faq"
       className="relative bg-surface-muted py-20 sm:py-24 lg:py-28 overflow-hidden border-b border-surface-border/60"
     >
-      {/* Decorative subtle ambient circle */}
+      {/* Decorative subtle ambient circle (Hardware-accelerated radial gradient) */}
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-brand-50/50 rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[radial-gradient(circle_at_center,rgba(239,246,255,0.85)_0%,transparent_70%)] -z-10"
         aria-hidden="true"
       />
 

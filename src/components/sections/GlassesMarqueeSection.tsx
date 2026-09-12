@@ -369,7 +369,7 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
         {/* Marquee Track Container */}
         <div
           className={cn(
-            'flex gap-6 sm:gap-8 w-max transition-all duration-300',
+            'flex gap-6 sm:gap-8 w-max transition-all duration-300 transform-gpu will-change-transform',
             'animate-marquee-slow'
           )}
           style={{

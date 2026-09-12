@@ -211,9 +211,9 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
       id="booking"
       className="relative bg-white py-20 sm:py-24 lg:py-28 overflow-hidden border-b border-surface-border/60"
     >
-      {/* Ambient background decoration */}
+      {/* Ambient background decoration (Hardware-accelerated radial gradient) */}
       <div
-        className="pointer-events-none absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-50/70 rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(239,246,255,0.9)_0%,transparent_70%)] -z-10"
         aria-hidden="true"
       />
 
@@ -262,7 +262,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
             className="lg:col-span-5 bg-gradient-to-b from-dark-900 via-dark-900 to-[#0c162d] text-white rounded-3xl p-7 sm:p-9 lg:p-10 flex flex-col justify-between relative overflow-hidden h-full border border-slate-800/80"
           >
             <div
-              className="pointer-events-none absolute -bottom-12 -right-12 w-64 h-64 bg-brand-600/25 rounded-full blur-3xl"
+              className="pointer-events-none absolute -bottom-12 -right-12 w-64 h-64 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.25)_0%,transparent_70%)]"
               aria-hidden="true"
             />
 

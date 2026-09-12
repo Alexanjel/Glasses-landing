@@ -59,9 +59,9 @@ export const Footer: React.FC<FooterProps> = ({ lang, onOpenPrivacyPolicy }) => 
 
   return (
     <footer className="bg-dark-950 text-white pt-20 pb-12 border-t border-dark-800 relative overflow-hidden">
-      {/* Background ambient lighting */}
+      {/* Background ambient lighting (Hardware-accelerated radial gradient) */}
       <div
-        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-brand-900/10 rounded-full blur-3xl -z-0"
+        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(30,58,138,0.25)_0%,transparent_70%)] -z-0"
         aria-hidden="true"
       />
 

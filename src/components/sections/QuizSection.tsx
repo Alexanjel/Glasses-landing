@@ -140,9 +140,9 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
       id="quiz"
       className="relative bg-white py-20 sm:py-24 lg:py-28 overflow-hidden border-b border-surface-border/60"
     >
-      {/* Decorative gradient background glow */}
+      {/* Decorative gradient background glow (Hardware-accelerated radial gradient) */}
       <div
-        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand-50/70 rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(239,246,255,0.9)_0%,transparent_70%)] -z-10"
         aria-hidden="true"
       />
 

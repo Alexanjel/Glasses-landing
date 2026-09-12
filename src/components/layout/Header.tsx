@@ -40,44 +40,58 @@ export const Header: React.FC<HeaderProps> = ({
   ]
 
   useEffect(() => {
-    let ticking = false
+    // 1. IntersectionObserver for zero-reflow Scroll-Spy on desktop
+    const sectionElements = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((el): el is HTMLElement => el !== null)
 
-    const updateScrollSpy = () => {
-      // Only execute scroll spy on desktop where nav links exist (window.innerWidth >= 1024)
-      // Completely eliminates forced reflow / layout thrashing on mobile
-      if (window.innerWidth >= 1024) {
-        const scrollPosition = window.scrollY + 140
-        for (let i = navItems.length - 1; i >= 0; i--) {
-          const item = navItems[i]
-          const section = document.getElementById(item.id)
-          if (section) {
-            const top = section.offsetTop
-            if (scrollPosition >= top) {
-              setActiveSection(item.id)
-              break
-            }
+    const visibleSections = new Map<string, number>()
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.set(entry.target.id, entry.intersectionRatio)
+          } else {
+            visibleSections.delete(entry.target.id)
+          }
+        })
+
+        // Find the active visible section matching navigation order
+        for (const item of navItems) {
+          if (visibleSections.has(item.id)) {
+            setActiveSection(item.id)
+            break
           }
         }
+      },
+      {
+        rootMargin: '-80px 0px -50% 0px',
+        threshold: [0, 0.1, 0.25, 0.5],
       }
-      ticking = false
-    }
+    )
 
+    sectionElements.forEach((el) => observer.observe(el))
+
+    // 2. Ultra-light isScrolled toggle with zero DOM queries
+    let ticking = false
     const handleScroll = () => {
-      const scrolled = window.scrollY > 15
-      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev))
-
       if (!ticking) {
-        window.requestAnimationFrame(updateScrollSpy)
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 20
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev))
+          ticking = false
+        })
         ticking = true
       }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    // Defer initial check until after paint to eliminate render-blocking forced reflow
-    const timer = setTimeout(handleScroll, 150)
+    handleScroll()
+
     return () => {
+      observer.disconnect()
       window.removeEventListener('scroll', handleScroll)
-      clearTimeout(timer)
     }
   }, [lang])
 

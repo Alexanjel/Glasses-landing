@@ -23,9 +23,9 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ lang }) => {
       id="reviews"
       className="relative bg-surface-muted py-20 sm:py-24 lg:py-28 overflow-hidden border-b border-surface-border/60"
     >
-      {/* Background ambient lighting */}
+      {/* Background ambient lighting (Hardware-accelerated radial gradient) */}
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-50/60 rounded-full blur-3xl -z-10"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(239,246,255,0.85)_0%,transparent_70%)] -z-10"
         aria-hidden="true"
       />
 
@@ -85,7 +85,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ lang }) => {
         {/* Marquee Track */}
         <div
           className={cn(
-            'flex gap-6 sm:gap-8 w-max transition-all duration-300',
+            'flex gap-6 sm:gap-8 w-max transition-all duration-300 transform-gpu will-change-transform',
             'animate-marquee-slow'
           )}
           style={{

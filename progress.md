@@ -132,3 +132,15 @@
 - [x] **Крок 14.4:** Очищення квізу (`QuizSection.tsx`), каталогу (`CatalogSection.tsx`), відгуків (`ReviewsSection.tsx`), форми запису (`BookingSection.tsx`) та FAQ (`FaqSection.tsx`): заміна всіх зміщень на спокійну появу `opacity: 0 -> 1`.
 - [x] **Крок 14.5:** Фінальний білд (`npm run build`), верифікація та оновлення звіту.
 
+---
+
+### ✅ Етап 15: Оптимізація плавності скролу на комп'ютерній (Desktop) версії (60–120 FPS)
+- [x] **Крок 15.1:** Оптимізація Scroll-Spy у `Header.tsx`: перехід з примусового перерахунку макета (`offsetTop` на кожен тік скролу) на асинхронний `IntersectionObserver`.
+- [x] **Крок 15.2:** Оптимізація фонового відео у `HeroSection.tsx`: видалення GPU-шейдера `filter brightness-90` та автоматичне призупинення відео поза зоною видимості.
+- [x] **Крок 15.3:** Заміна 7 важких фільтрів `blur-3xl` на апаратні радіальні градієнти (`SpecialistsSection`, `QuizSection`, `ReviewsSection`, `BookingSection`, `FaqSection`, `Footer`).
+- [x] **Крок 15.4:** Апаратна 3D-ізоляція шарів стрічок marquee (`translate3d`, `transform-gpu`, `will-change-transform` у `tailwind.config.js`, `GlassesMarqueeSection`, `ReviewsSection`).
+- [x] **Крок 15.5:** Оптимізація ре-рендерів `ScrollToTopButton.tsx` під час скролу.
+- [x] **Крок 15.6:** Фінальний білд (`npm run build`), верифікація та оновлення звіту.
+
+
+
