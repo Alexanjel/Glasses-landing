@@ -35,7 +35,54 @@
     </noscript>
   </head>
   <body class="bg-[#FFFFFF] text-[#0A0D14] antialiased selection:bg-brand-500 selection:text-white min-h-screen overflow-x-hidden">
-    <div id="root"></div>
+    <div id="root">
+      <div class="min-h-screen bg-white text-dark-900 flex flex-col antialiased">
+        <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-slate-200/80 py-3 sm:py-3.5">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <div class="flex items-center justify-start flex-1">
+              <div class="flex items-center justify-center w-10 h-8 rounded-[5px] text-xs font-bold bg-slate-100 text-dark-900 border border-slate-200/80">UA</div>
+            </div>
+            <div class="flex flex-col items-center text-center justify-center shrink-0 px-2">
+              <span class="text-xl sm:text-2xl font-black tracking-widest text-dark-900 leading-none">OPTIK<span class="text-blue-600">.</span></span>
+              <span class="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase font-semibold text-slate-500 mt-0.5">Студія Оптики</span>
+            </div>
+            <div class="flex items-center justify-end flex-1">
+              <div class="flex items-center gap-1.5 p-2 rounded-[5px] text-xs font-semibold bg-slate-100/90 text-dark-900 border border-slate-200/80">
+                <span class="text-xs font-medium">Меню</span>
+              </div>
+            </div>
+          </div>
+        </header>
+        <section id="hero" class="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#07090E] text-white pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+          <div class="absolute inset-0 overflow-hidden pointer-events-none select-none">
+            <img src="/assets/images/hero-mobile.webp" alt="OPTIK Studio" width="480" height="854" fetchpriority="high" loading="eager" class="block md:hidden absolute inset-0 w-full h-full object-cover filter brightness-85" />
+            <div class="absolute inset-0 bg-[#07090E]/65"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[#07090E]/70 via-transparent to-[#07090E]"></div>
+          </div>
+          <div class="relative z-10 max-w-5xl mx-auto w-full flex flex-col items-center text-center">
+            <div class="mb-6">
+              <div class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-white/10 text-white/90 border border-white/20">
+                <span>Преміальна оптика нового покоління</span>
+              </div>
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.12] mb-5 sm:mb-6">
+              Не соромся! Сформуй власний стиль!
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-slate-200/90 max-w-2xl mx-auto font-normal leading-relaxed mb-8 sm:mb-10">
+              Індивідуальний підбір оправ, що підкреслюють вашу особистість. Японський титан, преміальний ацетат та ультраточна компʼютерна діагностика 0.01D.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+              <div class="inline-flex items-center justify-center font-semibold rounded-[5px] text-base px-8 py-3.5 bg-blue-600 text-white w-full sm:w-auto">
+                Підібрати стиль
+              </div>
+              <div class="inline-flex items-center justify-center font-medium rounded-[5px] text-base px-8 py-3.5 bg-transparent text-white border border-white/30 w-full sm:w-auto">
+                Записатись на візит
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -75,7 +75,7 @@ export const LanguageSelect: React.FC<LanguageSelectProps> = ({
         onClick={() => setIsOpen((prev) => !prev)}
         whileTap={{ scale: 0.95 }}
         className={cn(
-          'flex items-center justify-center w-10 h-8 sm:w-11 sm:h-9 rounded-full text-xs font-bold tracking-wider select-none',
+          'flex items-center justify-center w-10 h-8 sm:w-11 sm:h-9 rounded-[5px] text-xs font-bold tracking-wider select-none cursor-pointer',
           'bg-slate-100 hover:bg-slate-200 text-dark-900 border border-slate-200/80',
           'transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-dark-900',
           isOpen && 'bg-slate-200 text-dark-900'

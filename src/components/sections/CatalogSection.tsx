@@ -108,7 +108,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             type="button"
             onClick={() => setActiveTab('all')}
             className={cn(
-              'px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-2 whitespace-nowrap border',
+              'px-5 sm:px-6 py-2.5 rounded-[5px] text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-2 whitespace-nowrap border',
               activeTab === 'all'
                 ? 'bg-dark-900 text-white border-transparent'
                 : 'bg-white text-slate-700 hover:text-dark-900 hover:bg-slate-100 border-slate-200'
@@ -117,7 +117,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             <span>{t.catalog.tabs.all}</span>
             <span
               className={cn(
-                'text-[11px] px-2 py-0.5 rounded-full font-mono font-medium',
+                'text-[11px] px-2 py-0.5 rounded-[4px] font-mono font-medium',
                 activeTab === 'all' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
               )}
             >
@@ -126,9 +126,9 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
           </button>
         </div>
 
-        {/* Category Filter Tabs: Row 2 - 3 Categories in one clean row with rounded-full pills */}
+        {/* Category Filter Tabs: Row 2 - 3 Categories in one clean row */}
         <div className="flex justify-center mb-12 sm:mb-14 px-2">
-          <div className="inline-flex p-1.5 rounded-full bg-white border border-slate-200 max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5">
+          <div className="inline-flex p-1.5 rounded-[6px] bg-white border border-slate-200 max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5">
             {categories
               .filter((tab) => tab.key !== 'all')
               .map((tab) => {
@@ -139,7 +139,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     type="button"
                     onClick={() => setActiveTab(tab.key)}
                     className={cn(
-                      'relative px-3.5 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-1.5 sm:gap-2 whitespace-nowrap',
+                      'relative px-3.5 sm:px-5 py-2 rounded-[5px] text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-1.5 sm:gap-2 whitespace-nowrap',
                       isActive
                         ? 'bg-dark-900 text-white'
                         : 'text-slate-600 hover:text-dark-900 hover:bg-slate-100'
@@ -148,7 +148,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     <span className="whitespace-nowrap">{tab.label}</span>
                     <span
                       className={cn(
-                        'text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-mono font-medium',
+                        'text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-[4px] font-mono font-medium',
                         isActive
                           ? 'bg-white/20 text-white'
                           : 'bg-slate-100 text-slate-500'
