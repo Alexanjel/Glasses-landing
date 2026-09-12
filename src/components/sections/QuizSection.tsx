@@ -184,7 +184,7 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
         </div>
 
         {/* Quiz Main Card */}
-        <div className="relative bg-surface-muted rounded-3xl p-6 sm:p-10 border border-surface-border/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] min-h-[460px] flex flex-col justify-between">
+        <div className="relative bg-surface-muted rounded-3xl p-6 sm:p-10 border border-surface-border/80 min-h-[460px] flex flex-col justify-between">
           <AnimatePresence mode="wait" custom={direction}>
             {!isCompleted ? (
               <motion.div
@@ -242,7 +242,7 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
                           className={cn(
                             'relative text-left p-5 rounded-2xl border-2 transition-all duration-200 cursor-pointer flex items-start gap-4',
                             isSelected
-                              ? 'bg-white border-brand-600 shadow-md ring-4 ring-brand-100'
+                              ? 'bg-white border-brand-600 ring-4 ring-brand-100'
                               : 'bg-white/80 hover:bg-white border-surface-border hover:border-slate-300'
                           )}
                         >
@@ -302,7 +302,7 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
                     iconPosition="right"
                     onClick={handleNext}
                     disabled={!answers[currentStepIndex]}
-                    className="px-7 sm:px-8 shadow-sm font-semibold"
+                    className="px-7 sm:px-8 font-semibold"
                   >
                     {t.nextBtn}
                   </Button>
@@ -324,7 +324,7 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
                   <div>
                     {/* Badge & Title */}
                     <div className="text-center mb-8">
-                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1D63ED] text-white text-xs font-bold mb-3 shadow-xs">
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1D63ED] text-white text-xs font-bold mb-3">
                         <Zap className="w-3.5 h-3.5 text-sky-200 fill-sky-200" />
                         <span>{result.matchScore}% точність підбору</span>
                       </div>
@@ -338,13 +338,13 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
                     </div>
 
                     {/* Matched Product Details Card */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-surface-border shadow-sm flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+                    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-surface-border flex flex-col md:flex-row items-center gap-6 sm:gap-8">
                       {/* Product Visual */}
                       <div className="w-full md:w-1/2 bg-surface-subtle/80 rounded-xl p-6 flex items-center justify-center relative overflow-hidden">
                         <img
                           src={result.product.image}
                           alt={result.product.name}
-                          className="w-full max-h-56 object-contain filter drop-shadow-[0_8px_16px_rgba(10,13,20,0.12)] hover:scale-105 transition-transform duration-300 ease-out"
+                          className="w-full max-h-56 object-contain hover:scale-105 transition-transform duration-300 ease-out"
                         />
                         <span className="absolute top-3 left-3 text-[11px] font-mono font-medium text-slate-600 bg-white/90 px-2 py-0.5 rounded border border-surface-border">
                           {result.product.code}

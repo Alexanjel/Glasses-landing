@@ -15,7 +15,7 @@ export const ToasterProvider: React.FC = () => {
           padding: '16px 20px',
         },
         classNames: {
-          toast: 'border shadow-xl backdrop-blur-md',
+          toast: 'border border-slate-200 bg-white',
           title: 'font-semibold text-sm',
           description: 'text-xs text-slate-600',
         },

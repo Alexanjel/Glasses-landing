@@ -80,7 +80,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                className="relative bg-slate-50 rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/90 shadow-sm"
+                className="relative bg-slate-50 rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/90"
               >
                 <div
                   className={cn(
@@ -95,7 +95,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                       isReversed ? 'lg:order-2' : 'lg:order-1'
                     )}
                   >
-                    <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm group">
+                    <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 group">
                       <div className="aspect-[4/5] sm:aspect-[4/5] lg:aspect-[4/5] w-full max-h-[460px]">
                         <img
                           src={caseItem.image}
@@ -109,7 +109,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                       <div className="absolute inset-0 bg-gradient-to-t from-dark-950/40 via-transparent to-transparent pointer-events-none" />
 
                       {/* Client Name Badge over Image */}
-                      <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-white/80 p-3.5 rounded-xl shadow-md flex items-center gap-3">
+                      <div className="absolute bottom-4 left-4 right-4 bg-white border border-slate-200 p-3.5 rounded-xl flex items-center gap-3">
                         <div className="w-8 h-8 rounded-lg bg-dark-900 text-white flex items-center justify-center shrink-0">
                           <User className="w-4 h-4" />
                         </div>
@@ -178,7 +178,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                       </div>
 
                       {/* Chosen Model Box */}
-                      <div className="mb-6 p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-3 shadow-2xs">
+                      <div className="mb-6 p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-3">
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-dark-900 shrink-0">
                             <Glasses className="w-4 h-4" />
@@ -202,7 +202,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                         size="md"
                         onClick={() => onBookCaseConsultation(caseItem.modelChosen)}
                         icon={<ArrowRight className="w-4 h-4" />}
-                        className="w-full sm:w-auto justify-center text-center shadow-sm hover:shadow"
+                        className="w-full sm:w-auto justify-center text-center"
                       >
                         {ctaLabels[lang]}
                       </Button>

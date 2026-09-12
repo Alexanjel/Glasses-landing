@@ -97,7 +97,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ lang }) => {
               key={`${review.id}-${idx}`}
               className="w-[320px] sm:w-[380px] lg:w-[420px] flex-shrink-0"
             >
-              <div className="h-full bg-white rounded-3xl p-6 sm:p-8 border border-surface-border/80 shadow-[0_4px_24px_-4px_rgba(10,13,20,0.05)] hover:shadow-[0_16px_36px_-6px_rgba(10,13,20,0.1)] hover:border-brand-200 transition-all duration-300 flex flex-col justify-between">
+              <div className="h-full bg-white rounded-3xl p-6 sm:p-8 border border-surface-border hover:border-slate-300 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   {/* Card Header: Rating stars & Verified Badge */}
                   <div className="flex items-center justify-between gap-2 mb-4">

@@ -71,7 +71,7 @@ export const ModalWrapper: React.FC<ModalWrapperProps> = ({
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ type: 'spring', stiffness: 350, damping: 28 }}
             className={cn(
-              'relative w-full bg-white rounded-3xl shadow-2xl border border-surface-border overflow-hidden z-10 my-auto p-6 sm:p-8',
+              'relative w-full bg-white rounded-3xl border border-surface-border overflow-hidden z-10 my-auto p-6 sm:p-8',
               maxWidthStyles[maxWidth],
               className
             )}

@@ -172,7 +172,7 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
             animate="visible"
             exit="exit"
             className={cn(
-              'relative w-full max-h-[85vh] sm:max-h-[80vh] flex flex-col bg-white shadow-2xl z-10',
+              'relative w-full max-h-[85vh] sm:max-h-[80vh] flex flex-col bg-white z-10',
               'pt-[62px] sm:pt-[72px]',
               'rounded-b-3xl border-b border-slate-200/90 overflow-hidden'
             )}
@@ -211,7 +211,7 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
                         <span className="text-xs font-mono font-semibold text-slate-400 group-hover:text-brand-500 transition-colors">
                           {item.id}
                         </span>
-                        <div className="p-1.5 rounded-xl bg-white shadow-2xs text-slate-600 group-hover:text-brand-600 group-hover:scale-105 transition-all">
+                        <div className="p-1.5 rounded-xl bg-white border border-slate-200 text-slate-600 group-hover:text-brand-600 group-hover:scale-105 transition-all">
                           <Icon className="w-4 h-4" />
                         </div>
                         <span className="text-sm font-semibold text-dark-900 group-hover:text-brand-900 transition-colors">
@@ -236,7 +236,7 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
               <Button
                 variant="primary"
                 size="md"
-                className="w-full shadow-md shadow-brand-500/20 font-semibold"
+                className="w-full font-semibold"
                 onClick={handleCtaClick}
                 icon={<CalendarCheck className="w-4 h-4" />}
               >

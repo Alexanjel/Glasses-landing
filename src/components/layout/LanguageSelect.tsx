@@ -102,7 +102,7 @@ export const LanguageSelect: React.FC<LanguageSelectProps> = ({
             aria-label="Оберіть мову"
             className={cn(
               'absolute top-full mt-2 w-16 sm:w-18 rounded-2xl bg-white',
-              'border border-slate-200 shadow-xl p-1.5 z-50',
+              'border border-slate-200 p-1.5 z-50',
               align === 'left' ? 'left-0' : 'right-0'
             )}
           >

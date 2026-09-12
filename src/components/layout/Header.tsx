@@ -89,8 +89,8 @@ export const Header: React.FC<HeaderProps> = ({
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-200',
-          'bg-white/90 backdrop-blur-md border-b border-slate-200/80',
-          isScrolled ? 'shadow-sm shadow-slate-900/5 py-2.5' : 'py-3 sm:py-3.5',
+          'bg-white/95 border-b border-slate-200/80',
+          isScrolled ? 'py-2.5' : 'py-3 sm:py-3.5',
           className
         )}
       >
@@ -200,7 +200,7 @@ export const Header: React.FC<HeaderProps> = ({
                 size="sm"
                 onClick={onBookClick}
                 icon={<Calendar className="w-3.5 h-3.5" />}
-                className="text-xs px-4 py-2 font-semibold shadow-sm hover:shadow whitespace-nowrap"
+                className="text-xs px-4 py-2 font-semibold whitespace-nowrap"
               >
                 {t.nav.booking}
               </Button>

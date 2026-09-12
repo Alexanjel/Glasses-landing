@@ -87,7 +87,7 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-70px' }}
                 transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                className="relative bg-surface-muted/60 rounded-3xl p-6 sm:p-8 lg:p-10 border border-surface-border/90 shadow-[0_4px_24px_-4px_rgba(10,13,20,0.03)] hover:border-brand-200/80 transition-colors"
+                className="relative bg-surface-muted/60 rounded-3xl p-6 sm:p-8 lg:p-10 border border-surface-border/90 hover:border-brand-200/80 transition-colors"
               >
                 <div
                   className={cn(
@@ -102,7 +102,7 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                       isRightAligned ? 'lg:order-2' : 'lg:order-1 lg:col-start-1'
                     )}
                   >
-                    <div className="relative rounded-2xl overflow-hidden bg-surface-subtle border border-surface-border shadow-md group">
+                    <div className="relative rounded-2xl overflow-hidden bg-surface-subtle border border-surface-border group">
                       <div className="aspect-[4/5] sm:aspect-[4/5] lg:aspect-[4/5] w-full max-h-[480px]">
                         <img
                           src={specialist.image}
@@ -119,7 +119,7 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                       <div className="absolute inset-0 bg-gradient-to-t from-dark-950/40 via-transparent to-transparent pointer-events-none" />
 
                       {/* Floating Experience Badge */}
-                      <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-white/95 backdrop-blur-md border border-white/80 px-4 py-2.5 rounded-xl shadow-lg shadow-slate-900/10 flex items-center gap-2.5">
+                      <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-white border border-slate-200 px-4 py-2.5 rounded-xl flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-600 shrink-0">
                           <Award className="w-4 h-4" />
                         </div>
@@ -158,7 +158,7 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                     </h3>
 
                     {/* Quote / Statement Card */}
-                    <div className="relative mb-6 p-4 sm:p-5 rounded-2xl bg-white border border-surface-border shadow-xs">
+                    <div className="relative mb-6 p-4 sm:p-5 rounded-2xl bg-white border border-surface-border">
                       <Quote className="w-5 h-5 text-brand-400/60 mb-2 shrink-0" />
                       <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic font-normal">
                         {specialist.description[lang]}
@@ -190,7 +190,7 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                         size="md"
                         onClick={() => onBookWithSpecialist(specialist.name[lang])}
                         icon={<Calendar className="w-4 h-4" />}
-                        className="w-full sm:w-auto justify-center text-center shadow-sm hover:shadow"
+                        className="w-full sm:w-auto justify-center text-center"
                       >
                         {getBookButtonText(specialist)}
                       </Button>

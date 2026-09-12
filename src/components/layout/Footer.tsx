@@ -14,6 +14,7 @@ import { Button } from '../ui/Button'
 
 export interface FooterProps {
   lang: Language
+  onOpenPrivacyPolicy?: () => void
 }
 
 // Crisp SVG social icons
@@ -29,7 +30,7 @@ const YoutubeIcon = () => (
   </svg>
 )
 
-export const Footer: React.FC<FooterProps> = ({ lang }) => {
+export const Footer: React.FC<FooterProps> = ({ lang, onOpenPrivacyPolicy }) => {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
   const [isTermsOpen, setIsTermsOpen] = useState(false)
 
@@ -71,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-10 h-10 rounded-2xl bg-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-600/30">
+                <div className="w-10 h-10 rounded-2xl bg-brand-600 flex items-center justify-center text-white">
                   <Glasses className="w-6 h-6" />
                 </div>
                 <span className="text-2xl font-black tracking-wider text-white">
@@ -182,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           <div className="flex items-center gap-6">
             <button
               type="button"
-              onClick={() => setIsPrivacyOpen(true)}
+              onClick={onOpenPrivacyPolicy || (() => setIsPrivacyOpen(true))}
               className="hover:text-white transition-colors cursor-pointer focus:outline-none focus:underline"
             >
               {t.privacy}

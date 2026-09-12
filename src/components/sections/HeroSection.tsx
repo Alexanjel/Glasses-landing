@@ -44,19 +44,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   className,
 }) => {
   const t = translations[lang]
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
 
   useEffect(() => {
-    // Only load heavy 9.8MB video on desktop/tablets (width >= 768px)
-    // On mobile slow 4G, avoid clogging bandwidth to guarantee 95+ PageSpeed & instant LCP
-    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
-      setShouldLoadVideo(true)
-    } else {
-      const timer = setTimeout(() => {
-        setShouldLoadVideo(true)
-      }, 4500)
-      return () => clearTimeout(timer)
+    // Only load background video on desktop/tablets (width >= 768px)
+    // On mobile devices, video is never rendered or downloaded to keep data footprint minimal
+    const checkIsDesktop = () => {
+      setIsDesktop(typeof window !== 'undefined' && window.innerWidth >= 768)
     }
+    checkIsDesktop()
+    window.addEventListener('resize', checkIsDesktop)
+    return () => window.removeEventListener('resize', checkIsDesktop)
   }, [])
 
   return (
@@ -68,21 +66,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         className
       )}
     >
-      {/* 1. Background Video with Ambient Lighting & Dark Overlay */}
+      {/* 1. Background Visuals with Ambient Lighting & Dark Overlay */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-        {/* Instant LCP Background Image */}
+        {/* Mobile Background Image (Lunet Eyewear - ultra-optimized WebP) */}
+        <img
+          src="/assets/images/hero-mobile.webp"
+          alt="OPTIK Studio"
+          fetchPriority="high"
+          decoding="async"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover filter brightness-85"
+        />
+
+        {/* Desktop Poster/Placeholder Image */}
         <img
           src="/assets/images/how-we-work.webp"
           alt=""
           fetchPriority="high"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover scale-105 filter brightness-90"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover scale-105 filter brightness-90"
         />
 
-        {/* Video mounted smoothly on desktop or deferred */}
-        {shouldLoadVideo && (
+        {/* Desktop Video - Only rendered on screens >= 768px */}
+        {isDesktop && (
           <video
-            className="absolute inset-0 w-full h-full object-cover scale-105 filter brightness-90 transition-opacity duration-1000"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover scale-105 filter brightness-90 transition-opacity duration-1000"
             autoPlay
             loop
             muted
@@ -110,7 +117,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {/* 2. Badge */}
           <motion.div variants={itemVariants} className="mb-6">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-white/10 text-white/90 border border-white/20 backdrop-blur-md select-none">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-white/10 text-white/90 border border-white/20 select-none">
               <span>{t.hero.badge}</span>
             </div>
           </motion.div>
@@ -141,7 +148,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               size="lg"
               onClick={onQuizClick}
               icon={<ArrowRight className="w-4 h-4 ml-0.5" />}
-              className="w-full sm:w-auto shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 transition-all font-semibold"
+              className="w-full sm:w-auto font-semibold"
             >
               {t.hero.ctaQuiz}
             </Button>
@@ -150,21 +157,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               size="lg"
               onClick={onBookingClick}
               icon={<Calendar className="w-4 h-4 text-slate-200" />}
-              className="w-full sm:w-auto text-white border-white/30 hover:border-white hover:bg-white/10 active:bg-white/20 backdrop-blur-md font-medium"
+              className="w-full sm:w-auto text-white border-white/30 hover:border-white hover:bg-white/10 active:bg-white/20 font-medium"
             >
               {t.hero.ctaBooking}
             </Button>
           </motion.div>
 
-          {/* 6. Floating Stats Bar - Sleek Glass with Bold Highlights & Centered Layout */}
+          {/* 6. Floating Stats Bar - Clean Glass with Strictly Aligned Icons & Left-Aligned Text */}
           <motion.div
             variants={itemVariants}
             className="w-full max-w-4xl mx-auto mt-12 sm:mt-16 flex justify-center"
           >
-            <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/40 border border-white/15">
               {/* Stat Item 1: Precision */}
-              <div className="flex items-center justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
-                <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white shadow-xs">
+              <div className="flex items-center justify-start sm:justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors max-w-[290px] sm:max-w-none mx-auto w-full">
+                <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white">
                   <Activity className="w-5 h-5" />
                 </div>
                 <div className="text-left">
@@ -190,8 +197,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Stat Item 2: Warranty */}
-              <div className="flex items-center justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
-                <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white shadow-xs">
+              <div className="flex items-center justify-start sm:justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors max-w-[290px] sm:max-w-none mx-auto w-full">
+                <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div className="text-left">
@@ -217,8 +224,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Stat Item 3: Clients */}
-              <div className="flex items-center justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
-                <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white shadow-xs">
+              <div className="flex items-center justify-start sm:justify-center gap-3.5 p-2.5 sm:p-3 rounded-xl hover:bg-white/5 transition-colors max-w-[290px] sm:max-w-none mx-auto w-full">
+                <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0 text-white">
                   <Users className="w-5 h-5" />
                 </div>
                 <div className="text-left">

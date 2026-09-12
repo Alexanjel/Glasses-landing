@@ -85,7 +85,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
             className="lg:col-span-5 relative flex flex-col"
           >
-            <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm group h-full flex flex-col min-h-[380px] sm:min-h-[460px]">
+            <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 group h-full flex flex-col min-h-[380px] sm:min-h-[460px]">
               <img
                 src="/assets/images/how-we-work.webp"
                 alt={t.about.title}
@@ -105,7 +105,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.25, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                className="absolute bottom-5 left-5 right-5 sm:right-auto sm:max-w-xs bg-white/95 backdrop-blur-md border border-white/80 p-3.5 sm:p-4 rounded-2xl shadow-md flex items-center gap-3.5"
+                className="absolute bottom-5 left-5 right-5 sm:right-auto sm:max-w-xs bg-white border border-slate-200 p-3.5 sm:p-4 rounded-2xl flex items-center gap-3.5"
               >
                 <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-dark-900 shrink-0">
                   <Sparkles className="w-5 h-5" />
@@ -150,7 +150,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
                   }}
                   className="flex items-start gap-4 p-4 sm:p-4.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors duration-200"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 shadow-2xs flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0">
                     {valueIcons[index] || <Sparkles className="w-5 h-5 text-dark-900" />}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -172,7 +172,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
                 size="lg"
                 onClick={onConsultationClick}
                 icon={<ArrowRight className="w-4 h-4" />}
-                className="w-full justify-center text-center font-semibold shadow-md shadow-brand-600/20"
+                className="w-full justify-center text-center font-semibold"
               >
                 {badgeInfo.ctaText}
               </Button>

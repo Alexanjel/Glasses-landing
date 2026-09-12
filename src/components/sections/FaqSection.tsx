@@ -77,9 +77,9 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang }) => {
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ duration: 0.4, delay: index * 0.08, ease: 'easeOut' }}
                 className={cn(
-                  'bg-white rounded-2xl sm:rounded-3xl border transition-all duration-200 overflow-hidden shadow-[0_2px_12px_-2px_rgba(10,13,20,0.03)]',
+                  'bg-white rounded-2xl sm:rounded-3xl border transition-all duration-200 overflow-hidden',
                   isOpen
-                    ? 'border-brand-200 ring-2 ring-brand-50 shadow-md'
+                    ? 'border-brand-200 ring-2 ring-brand-50'
                     : 'border-surface-border hover:border-slate-300'
                 )}
               >

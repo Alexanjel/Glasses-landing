@@ -15,10 +15,10 @@ export const Badge: React.FC<BadgeProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    brand: 'bg-[#1D63ED] text-white border-transparent shadow-xs',
-    dark: 'bg-[#1D63ED] text-white border-transparent shadow-xs',
+    brand: 'bg-[#1D63ED] text-white border-transparent',
+    dark: 'bg-[#1D63ED] text-white border-transparent',
     neutral: 'bg-slate-100 text-slate-800 border-transparent',
-    outline: 'bg-white text-dark-900 border-slate-200 shadow-2xs',
+    outline: 'bg-white text-dark-900 border-slate-200',
   }
 
   return (

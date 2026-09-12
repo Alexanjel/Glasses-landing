@@ -17,11 +17,13 @@ const ReviewsSection = lazy(() => import('./components/sections/ReviewsSection')
 const BookingSection = lazy(() => import('./components/sections/BookingSection'))
 const FaqSection = lazy(() => import('./components/sections/FaqSection'))
 const Footer = lazy(() => import('./components/layout/Footer'))
+const PrivacyPolicyModal = lazy(() => import('./components/modals/PrivacyPolicyModal'))
 
 export function App() {
   const [lang, setLang] = useState<Language>('uk')
   const [selectedSpecialist, setSelectedSpecialist] = useState<string | undefined>(undefined)
   const [selectedProduct, setSelectedProduct] = useState<string | undefined>(undefined)
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId)
@@ -135,6 +137,7 @@ export function App() {
             lang={lang}
             initialSpecialist={selectedSpecialist}
             initialProduct={selectedProduct}
+            onOpenPrivacyPolicy={() => setIsPrivacyModalOpen(true)}
           />
 
           {/* 11. Block 12: Frequently Asked Questions (FAQ) */}
@@ -147,6 +150,16 @@ export function App() {
       {/* 12. Block 13: Footer with Kyiv showroom contacts & legal modals */}
       <Suspense fallback={null}>
         <Footer
+          lang={lang}
+          onOpenPrivacyPolicy={() => setIsPrivacyModalOpen(true)}
+        />
+      </Suspense>
+
+      {/* Global Privacy Policy Modal Popup */}
+      <Suspense fallback={null}>
+        <PrivacyPolicyModal
+          isOpen={isPrivacyModalOpen}
+          onClose={() => setIsPrivacyModalOpen(false)}
           lang={lang}
         />
       </Suspense>

@@ -26,6 +26,7 @@ export interface BookingSectionProps {
   lang: Language
   initialSpecialist?: string
   initialProduct?: string
+  onOpenPrivacyPolicy?: () => void
 }
 
 const MAX_MESSAGE_LENGTH = 3000
@@ -77,6 +78,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   lang,
   initialSpecialist,
   initialProduct,
+  onOpenPrivacyPolicy,
 }) => {
   const t = translations[lang].booking
   const [name, setName] = useState('')
@@ -84,11 +86,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   const [message, setMessage] = useState('')
   const [selectedSpecialist, setSelectedSpecialist] = useState<string>('')
   const [selectedProduct, setSelectedProduct] = useState<string | undefined>(initialProduct)
+  const [isAgreedToPolicy, setIsAgreedToPolicy] = useState(false)
   
   const [errors, setErrors] = useState<{
     name?: string
     phone?: string
     message?: string
+    policy?: string
   }>({})
   
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -133,7 +137,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   }
 
   const validateForm = (): boolean => {
-    const newErrors: { name?: string; phone?: string; message?: string } = {}
+    const newErrors: { name?: string; phone?: string; message?: string; policy?: string } = {}
 
     if (!name.trim()) {
       newErrors.name = t.validation.nameRequired
@@ -149,6 +153,10 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
       newErrors.message = t.validation.messageRequired
     } else if (message.length > MAX_MESSAGE_LENGTH) {
       newErrors.message = t.validation.messageTooLong
+    }
+
+    if (!isAgreedToPolicy) {
+      newErrors.policy = t.validation.policyRequired
     }
 
     setErrors(newErrors)
@@ -191,6 +199,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
       setMessage('')
       setSelectedSpecialist('')
       setSelectedProduct(undefined)
+      setIsAgreedToPolicy(false)
       setErrors({})
     }, 800)
   }
@@ -250,7 +259,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-5 bg-gradient-to-b from-dark-900 via-dark-900 to-[#0c162d] text-white rounded-3xl p-7 sm:p-9 lg:p-10 shadow-xl flex flex-col justify-between relative overflow-hidden h-full border border-slate-800/80"
+            className="lg:col-span-5 bg-gradient-to-b from-dark-900 via-dark-900 to-[#0c162d] text-white rounded-3xl p-7 sm:p-9 lg:p-10 flex flex-col justify-between relative overflow-hidden h-full border border-slate-800/80"
           >
             <div
               className="pointer-events-none absolute -bottom-12 -right-12 w-64 h-64 bg-brand-600/25 rounded-full blur-3xl"
@@ -323,7 +332,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-7 bg-surface-muted rounded-3xl p-6 sm:p-10 border border-surface-border/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+            className="lg:col-span-7 bg-surface-muted rounded-3xl p-6 sm:p-10 border border-surface-border/80"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Pre-selected Product Badge (from Quiz/Catalog) */}
@@ -483,6 +492,79 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                 )}
               </div>
 
+              {/* Privacy Policy Agreement Checkbox with Interactive Modal Link */}
+              <div className="pt-1">
+                <label className="flex items-start gap-3 cursor-pointer select-none group">
+                  <div className="relative flex items-center mt-0.5">
+                    <input
+                      type="checkbox"
+                      name="privacyPolicy"
+                      id="privacyPolicy"
+                      checked={isAgreedToPolicy}
+                      onChange={(e) => {
+                        setIsAgreedToPolicy(e.target.checked)
+                        if (errors.policy) setErrors((prev) => ({ ...prev, policy: undefined }))
+                      }}
+                      className="w-4 h-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500 cursor-pointer accent-brand-600"
+                    />
+                  </div>
+                  <span className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {lang === 'uk' ? (
+                      <>
+                        Я погоджуюся з{' '}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            onOpenPrivacyPolicy?.()
+                          }}
+                          className="text-brand-600 font-semibold underline hover:text-brand-700 transition-colors focus:outline-none cursor-pointer"
+                        >
+                          політикою конфіденційності
+                        </button>
+                      </>
+                    ) : lang === 'en' ? (
+                      <>
+                        I agree with the{' '}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            onOpenPrivacyPolicy?.()
+                          }}
+                          className="text-brand-600 font-semibold underline hover:text-brand-700 transition-colors focus:outline-none cursor-pointer"
+                        >
+                          privacy policy
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        Я соглашаюсь с{' '}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            onOpenPrivacyPolicy?.()
+                          }}
+                          className="text-brand-600 font-semibold underline hover:text-brand-700 transition-colors focus:outline-none cursor-pointer"
+                        >
+                          политикой конфиденциальности
+                        </button>
+                      </>
+                    )}
+                  </span>
+                </label>
+                {errors.policy && (
+                  <p className="flex items-center gap-1 text-xs text-red-600 mt-1.5 font-medium">
+                    <AlertCircle className="w-3.5 h-3.5" />
+                    <span>{errors.policy}</span>
+                  </p>
+                )}
+              </div>
+
               {/* Submit CTA Button - 'Відправити' + Arrow in single line without wrapping */}
               <div className="pt-2">
                 <Button
@@ -492,7 +574,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   isLoading={isSubmitting}
                   icon={<ArrowRight className="w-4 h-4 ml-1" />}
                   iconPosition="right"
-                  className="w-full justify-center text-center font-bold text-base px-8 py-4 gap-2.5 shadow-md shadow-brand-600/25 whitespace-nowrap"
+                  className="w-full justify-center text-center font-bold text-base px-8 py-4 gap-2.5 whitespace-nowrap"
                 >
                   {isSubmitting ? t.submitting : t.submitBtn}
                 </Button>

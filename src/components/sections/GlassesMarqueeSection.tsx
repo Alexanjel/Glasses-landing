@@ -381,7 +381,7 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
               key={`${model.id}-${idx}`}
               className="w-[300px] sm:w-[360px] lg:w-[390px] flex-shrink-0 group/card"
             >
-              <div className="h-full bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+              <div className="h-full bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   {/* Image Presentation Box - Pure Transparent Display right at top */}
                   <div className="relative h-48 sm:h-56 w-full bg-slate-50/80 rounded-2xl p-4 flex items-center justify-center overflow-hidden group-hover/card:bg-slate-100/80 transition-colors duration-300">
@@ -392,7 +392,7 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                       height="200"
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-contain filter drop-shadow-[0_8px_14px_rgba(10,13,20,0.12)] group-hover/card:scale-105 transition-transform duration-300 ease-out"
+                      className="w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-300 ease-out"
                     />
                   </div>
 
@@ -408,10 +408,10 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                 </div>
 
                 {/* Card Bottom: Price & Action */}
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="flex items-center justify-between pt-4 mt-4 border-t border-slate-100">
                   <div>
-                    <span className="text-xs text-slate-600 font-medium block">{priceLabels[lang]}</span>
-                    <span className="text-lg font-extrabold text-dark-900 tracking-tight">
+                    <span className="text-xs text-slate-600 block">{priceLabels[lang]}</span>
+                    <span className="text-base font-bold text-dark-900 font-mono">
                       {model.price[lang]}
                     </span>
                   </div>
@@ -419,7 +419,7 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                   <motion.button
                     whileTap={{ scale: 0.95 }}
                     onClick={() => onTryOnClick(model.code)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-dark-900 text-white hover:bg-dark-800 transition-colors cursor-pointer shadow-xs"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-dark-900 text-white hover:bg-dark-800 transition-colors cursor-pointer"
                   >
                     <Eye className="w-3.5 h-3.5" />
                     <span>{tryOnLabels[lang]}</span>
@@ -443,10 +443,10 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
-                className="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm"
+                className="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90"
               >
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center shadow-md shadow-brand-600/20">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center">
                     <IconComponent className="w-6 h-6" />
                   </div>
                   <div className="text-right">

@@ -99,7 +99,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             exit={{ opacity: 0, scale: 0.95, y: 12 }}
             transition={{ type: 'spring', stiffness: 360, damping: 28 }}
             className={cn(
-              'relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-surface-border',
+              'relative w-full max-w-3xl bg-white rounded-3xl border border-surface-border',
               'overflow-hidden z-10 my-auto flex flex-col max-h-[90vh]'
             )}
             onClick={(e) => e.stopPropagation()}
@@ -140,12 +140,12 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                       transition={{ duration: 0.3, ease: 'easeOut' }}
                       src={currentImage}
                       alt={product.name}
-                      className="w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(10,13,20,0.18)]"
+                      className="w-full h-full object-contain"
                     />
 
                     {/* Old Price Discount Badge */}
                     {product.oldPrice && (
-                      <div className="absolute top-3 left-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                      <div className="absolute top-3 left-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
                         -{Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)}%
                       </div>
                     )}
@@ -329,7 +329,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 size="md"
                 onClick={handleBooking}
                 icon={<CalendarCheck className="w-4 h-4" />}
-                className="w-full sm:w-auto shadow-md shadow-brand-500/20"
+                className="w-full sm:w-auto"
               >
                 {t.bookTryOn}
               </Button>

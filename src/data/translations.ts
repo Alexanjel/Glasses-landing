@@ -132,6 +132,7 @@ export const translations: Record<Language, {
       phoneInvalid: string
       messageRequired: string
       messageTooLong: string
+      policyRequired: string
     }
   }
   faq: {
@@ -293,6 +294,7 @@ export const translations: Record<Language, {
         phoneInvalid: 'Введіть коректний номер у форматі +380XXXXXXXXX',
         messageRequired: 'Будь ласка, напишіть супутній текст або побажання',
         messageTooLong: 'Текст не може перевищувати 3000 символів',
+        policyRequired: 'Необхідно погодитися з політикою конфіденційності',
       },
     },
     faq: {
@@ -454,6 +456,7 @@ export const translations: Record<Language, {
         phoneInvalid: 'Please enter a valid phone number (+380...)',
         messageRequired: 'Please enter accompanying notes',
         messageTooLong: 'Message must not exceed 3000 characters',
+        policyRequired: 'You must agree to the privacy policy',
       },
     },
     faq: {
@@ -615,6 +618,7 @@ export const translations: Record<Language, {
         phoneInvalid: 'Введите корректный номер (+380...)',
         messageRequired: 'Пожалуйста, напишите сопутствующий текст',
         messageTooLong: 'Текст не может превышать 3000 символов',
+        policyRequired: 'Необходимо согласиться с политикой конфиденциальности',
       },
     },
     faq: {

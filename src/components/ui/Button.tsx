@@ -18,12 +18,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const sizeStyles = {
       sm: 'text-xs px-4 sm:px-5 py-2 sm:py-2.5 gap-2',
       md: 'text-sm px-6 sm:px-7 py-2.5 sm:py-3 gap-2.5',
-      lg: 'text-base px-8 sm:px-10 py-3.5 sm:py-4 gap-3 shadow-sm',
+      lg: 'text-base px-8 sm:px-10 py-3.5 sm:py-4 gap-3',
     }
 
     const variantStyles = {
-      primary: 'bg-brand-600 text-white hover:bg-brand-700 shadow-sm active:bg-brand-800',
-      dark: 'bg-dark-900 text-white hover:bg-dark-800 active:bg-black shadow-md',
+      primary: 'bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800',
+      dark: 'bg-dark-900 text-white hover:bg-dark-800 active:bg-black',
       secondary: 'bg-surface-subtle text-dark-900 hover:bg-slate-200 active:bg-slate-300 border border-surface-border',
       outline: 'bg-transparent text-dark-900 border border-slate-300 hover:border-dark-900 hover:bg-slate-50',
       ghost: 'bg-transparent text-slate-700 hover:text-dark-900 hover:bg-slate-100',

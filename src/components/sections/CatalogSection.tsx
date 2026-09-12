@@ -110,8 +110,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             className={cn(
               'px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-2 whitespace-nowrap border',
               activeTab === 'all'
-                ? 'bg-dark-900 text-white border-transparent shadow-md shadow-black/10'
-                : 'bg-white text-slate-700 hover:text-dark-900 hover:bg-slate-100 border-slate-200 shadow-xs'
+                ? 'bg-dark-900 text-white border-transparent'
+                : 'bg-white text-slate-700 hover:text-dark-900 hover:bg-slate-100 border-slate-200'
             )}
           >
             <span>{t.catalog.tabs.all}</span>
@@ -128,7 +128,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 
         {/* Category Filter Tabs: Row 2 - 3 Categories in one clean row with rounded-full pills */}
         <div className="flex justify-center mb-12 sm:mb-14 px-2">
-          <div className="inline-flex p-1.5 rounded-full bg-white border border-slate-200 shadow-xs max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5">
+          <div className="inline-flex p-1.5 rounded-full bg-white border border-slate-200 max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5">
             {categories
               .filter((tab) => tab.key !== 'all')
               .map((tab) => {
@@ -141,7 +141,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     className={cn(
                       'relative px-3.5 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-1.5 sm:gap-2 whitespace-nowrap',
                       isActive
-                        ? 'bg-dark-900 text-white shadow-sm'
+                        ? 'bg-dark-900 text-white'
                         : 'text-slate-600 hover:text-dark-900 hover:bg-slate-100'
                     )}
                   >
@@ -180,7 +180,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               return (
                 <div
                   key={product.id}
-                  className="group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                  className="group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
                 >
                   {/* Card Top: Tag & Code in one clean line without wrapping */}
                   <div>
@@ -206,10 +206,10 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                         src={displayImage}
                         alt={product.name}
                         loading="lazy"
-                        className="w-full h-full object-contain filter drop-shadow-[0_8px_14px_rgba(10,13,20,0.12)] group-hover:scale-105 transition-transform duration-300 ease-out"
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 ease-out"
                       />
 
-                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-white p-1.5 rounded-xl border border-slate-200 text-slate-700 shadow-xs">
+                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-white p-1.5 rounded-xl border border-slate-200 text-slate-700">
                         <Info className="w-4 h-4" />
                       </div>
                     </div>
@@ -310,7 +310,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                         size="sm"
                         onClick={(e) => handleCardTryOn(e, product)}
                         icon={<Eye className="w-3.5 h-3.5" />}
-                        className="w-full text-xs font-semibold py-2 px-2 shadow-xs"
+                        className="w-full text-xs font-semibold py-2 px-2"
                       >
                         {t.catalog.tryOnBtn}
                       </Button>
