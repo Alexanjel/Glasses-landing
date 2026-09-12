@@ -72,6 +72,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <img
           src="/assets/images/hero-mobile.webp"
           alt="OPTIK Studio"
+          width="480"
+          height="854"
+          loading="eager"
           fetchPriority="high"
           decoding="async"
           className="block md:hidden absolute inset-0 w-full h-full object-cover filter brightness-85"

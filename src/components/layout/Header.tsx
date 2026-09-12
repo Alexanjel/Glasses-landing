@@ -40,31 +40,45 @@ export const Header: React.FC<HeaderProps> = ({
   ]
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 15) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
+    let ticking = false
 
-      // Scroll-Spy detection
-      const scrollPosition = window.scrollY + 140
-      for (let i = navItems.length - 1; i >= 0; i--) {
-        const item = navItems[i]
-        const section = document.getElementById(item.id)
-        if (section) {
-          const top = section.offsetTop
-          if (scrollPosition >= top) {
-            setActiveSection(item.id)
-            break
+    const updateScrollSpy = () => {
+      // Only execute scroll spy on desktop where nav links exist (window.innerWidth >= 1024)
+      // Completely eliminates forced reflow / layout thrashing on mobile
+      if (window.innerWidth >= 1024) {
+        const scrollPosition = window.scrollY + 140
+        for (let i = navItems.length - 1; i >= 0; i--) {
+          const item = navItems[i]
+          const section = document.getElementById(item.id)
+          if (section) {
+            const top = section.offsetTop
+            if (scrollPosition >= top) {
+              setActiveSection(item.id)
+              break
+            }
           }
         }
+      }
+      ticking = false
+    }
+
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 15
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev))
+
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollSpy)
+        ticking = true
       }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+    // Defer initial check until after paint to eliminate render-blocking forced reflow
+    const timer = setTimeout(handleScroll, 150)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(timer)
+    }
   }, [lang])
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -130,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                 whileTap={{ scale: 0.94 }}
                 className={cn(
-                  'flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-full text-xs font-semibold select-none cursor-pointer touch-manipulation',
+                  'flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-[5px] text-xs font-semibold select-none cursor-pointer touch-manipulation',
                   isMobileMenuOpen
                     ? 'bg-dark-900 text-white border border-dark-900'
                     : 'bg-slate-100/90 hover:bg-slate-200/90 text-dark-900 border border-slate-200/80',
@@ -181,7 +195,7 @@ export const Header: React.FC<HeaderProps> = ({
                     type="button"
                     onClick={() => handleQuickNavClick(item.href, item.id)}
                     className={cn(
-                      'relative px-3 xl:px-3.5 py-1.5 rounded-full transition-all duration-200 cursor-pointer select-none whitespace-nowrap',
+                      'relative px-3 xl:px-3.5 py-1.5 rounded-[5px] transition-all duration-200 cursor-pointer select-none whitespace-nowrap',
                       isActive
                         ? 'text-brand-600 font-bold bg-brand-50/90'
                         : 'text-slate-600 hover:text-dark-900 hover:bg-slate-100/70'

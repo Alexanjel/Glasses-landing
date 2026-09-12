@@ -390,6 +390,7 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                       alt={model.name[lang]}
                       width="360"
                       height="200"
+                      sizes="(max-width: 640px) 240px, 360px"
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-300 ease-out"
@@ -419,7 +420,7 @@ export const GlassesMarqueeSection: React.FC<GlassesMarqueeSectionProps> = ({
                   <motion.button
                     whileTap={{ scale: 0.95 }}
                     onClick={() => onTryOnClick(model.code)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-dark-900 text-white hover:bg-dark-800 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[5px] text-xs font-semibold bg-dark-900 text-white hover:bg-dark-800 transition-colors cursor-pointer"
                   >
                     <Eye className="w-3.5 h-3.5" />
                     <span>{tryOnLabels[lang]}</span>

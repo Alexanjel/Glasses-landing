@@ -15,13 +15,21 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/images/how-we-work.webp" />
 
-    <!-- Preload LCP Hero Image -->
-    <link rel="preload" as="image" href="/assets/images/how-we-work.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload Critical LCP Hero Image (Mobile First) -->
+    <link rel="preload" as="image" href="/assets/images/hero-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width: 767px)" />
+    <link rel="preload" as="image" href="/assets/images/how-we-work.webp" type="image/webp" fetchpriority="high" media="(min-width: 768px)" />
 
-    <!-- Google Fonts Optimization: Preconnect & Asynchronous Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Google Fonts Optimization: Non-blocking asynchronous loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap';
+        document.head.appendChild(link);
+      });
+    </script>
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
     </noscript>

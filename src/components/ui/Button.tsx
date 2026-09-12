@@ -13,7 +13,7 @@ export interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'>
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', isLoading = false, icon, iconPosition = 'left', children, disabled, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center font-medium select-none cursor-pointer rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed'
+    const baseStyles = 'inline-flex items-center justify-center font-medium select-none cursor-pointer rounded-[5px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed'
     
     const sizeStyles = {
       sm: 'text-xs px-4 sm:px-5 py-2 sm:py-2.5 gap-2',
