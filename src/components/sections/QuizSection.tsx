@@ -122,18 +122,15 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
 
   const result = isCompleted ? getMatchedProduct() : null
 
-  // Slide variants for Emil Kowalski spring animations
+  // Pure smooth crossfade without jumping or sliding
   const slideVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 30 : -30,
+    enter: () => ({
       opacity: 0,
     }),
     center: {
-      x: 0,
       opacity: 1,
     },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -30 : 30,
+    exit: () => ({
       opacity: 0,
     }),
   }
@@ -153,30 +150,30 @@ export const QuizSection: React.FC<QuizSectionProps> = ({ lang, onQuizComplete }
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
             className="flex justify-center mb-4"
           >
             <Badge variant="brand">{t.badge}</Badge>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+            transition={{ duration: 0.45, delay: 0.06, ease: 'easeOut' }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark-900 leading-[1.18]"
           >
             {t.title}
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 0.45, delay: 0.12, ease: 'easeOut' }}
             className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed"
           >
             {t.subtitle}

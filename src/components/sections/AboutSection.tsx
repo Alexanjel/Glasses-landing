@@ -45,30 +45,30 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
         {/* Centered Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.45, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
             className="flex justify-center mb-4"
           >
             <Badge variant="brand">{t.about.badge}</Badge>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
+            transition={{ duration: 0.45, delay: 0.06, ease: 'easeOut' }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark-900 leading-[1.18]"
           >
             {t.about.title}
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: 0.16, ease: 'easeOut' }}
+            transition={{ duration: 0.45, delay: 0.12, ease: 'easeOut' }}
             className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-2xl mx-auto"
           >
             {t.about.paragraph1}
@@ -79,10 +79,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Column 1: Image container with floating badge */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="lg:col-span-5 relative flex flex-col"
           >
             <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 group h-full flex flex-col min-h-[380px] sm:min-h-[460px]">
@@ -101,10 +101,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
 
               {/* Floating Badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.92, y: 16 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.25, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ delay: 0.15, duration: 0.4, ease: 'easeOut' }}
                 className="absolute bottom-5 left-5 right-5 sm:right-auto sm:max-w-xs bg-white border border-slate-200 p-3.5 sm:p-4 rounded-2xl flex items-center gap-3.5"
               >
                 <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-dark-900 shrink-0">
@@ -124,10 +124,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
 
           {/* Column 2: Story & Value Points, Aligned evenly from Top to Bottom */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
             className="lg:col-span-7 flex flex-col justify-between"
           >
             {/* Story Paragraph 2 */}
@@ -140,13 +140,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onConsultation
               {t.about.points.map((point, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 0.45,
-                    delay: 0.15 + index * 0.08,
-                    ease: [0.23, 1, 0.32, 1],
+                    duration: 0.4,
+                    delay: 0.1 + index * 0.06,
+                    ease: 'easeOut',
                   }}
                   className="flex items-start gap-4 p-4 sm:p-4.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors duration-200"
                 >
